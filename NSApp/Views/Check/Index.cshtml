@@ -1,0 +1,37 @@
+﻿@model CheckDataModel;
+
+@{
+    ViewData["Title"] = "Test";
+}
+
+<h1>Rzuty</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-action="Roll" method="post" class="">
+            <div class="form-row">
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="DifficultyLevel">Poziom Trudności</label>
+                    <input asp-for="DifficultyLevel" type="number" class="form-control">
+                    <span asp-validation-for="DifficultyLevel"></span>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label asp-for="TempHeroName">Bohater</label>
+                    <select asp-for="TempHeroName" class="custom-select">
+                        @foreach (HeroModel hero in ViewBag.Heroes)
+                        {
+                            <option value="@hero.Name">@hero.Name</option>
+                        }
+                    </select>
+                    <span asp-validation-for="TempHeroName"></span>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

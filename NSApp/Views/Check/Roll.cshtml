@@ -1,0 +1,48 @@
+﻿@model CheckDataModel
+@{
+    ViewData["Title"] = "RollData";
+}
+
+<div class="card">
+    <div class="card-header">
+        Roll Data
+    </div>
+    <div class="card-body">
+        <h3>Values</h3>
+        <ul class="list-group list-group-horizontal">
+            @foreach (int value in Model.NaturalRollValues)
+            {
+                <li class="list-group-item">@value</li>
+            }
+        </ul>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Poziom Trudności [numerycznie]
+                <span class="badge badge-primary badge-pill">@Model.DifficultyLevel</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Modyfikator Poziomu Trudności
+                <span class="badge badge-primary badge-pill">@Model.DifficultyModifier</span>
+            </li>
+        </ul>
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Imię postaci
+                    <span class="badge badge-primary badge-pill">@Model.Hero.Name</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Wartość Atrybutu
+                    <span class="badge badge-primary badge-pill">@Model.Hero.AttributeValue</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Wartość Umiejętności
+                    <span class="badge badge-primary badge-pill">@Model.Hero.SkillValue</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<a class="btn btn-primary" href="@Url.ActionLink("Index","Check")" role="button">Kolejny Test</a>
+<a class="btn btn-primary" href="@Url.ActionLink("Roll","Check", Model)" role="button">Przerzut</a>
