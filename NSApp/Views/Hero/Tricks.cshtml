@@ -1,0 +1,28 @@
+﻿@model TricksModel
+@{
+    ViewData["Title"] = "Tricks";
+}
+
+<h1>Tricks</h1>
+
+<div class="row justify-content-around">
+    @foreach (var trick in Model.Tricks)
+    {
+        <div class="card" style="width: 30rem">
+            <div class="card-body">
+                <h5 class="card-title">@trick.Name</h5>
+                <h6 class="card-subtitle mb-2 text-muted">
+                    @foreach (var req in trick.Requirements)
+                    {
+                        <p>@req.Name @req.Value+,</p>
+                    }
+                </h6>
+                <h6 class="card-subtitle mb-2 text-muted">@trick.Info</h6>
+                <blockquote class="blockquote mb-0">
+                    <footer class="blockquote-footer">@trick.Description</footer>
+                    <p class="card-text">@trick.Working</p>
+                </blockquote>
+            </div>
+        </div>
+    }
+</div>

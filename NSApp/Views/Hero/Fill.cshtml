@@ -1,0 +1,563 @@
+﻿@model HeroModel
+
+@{
+    ViewData["Title"] = "Bohater";
+}
+
+<h1>Bohater</h1>
+
+<form asp-action="Fill" method="post">
+    <div class="row justify-content-around">
+        <div class="form-group">
+            <div class="card" style="width: 60rem">
+                <h5 class="card-header">Atrybuty</h5>
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label asp-for="@Model.HeroStats.Dexterity" class="input-group-text">Zręczność</label>
+                        </div>
+                        <input asp-for="@Model.HeroStats.Dexterity" type="number" class="form-control" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label asp-for="@Model.HeroStats.Perception" class="input-group-text">Percepcja</label>
+                        </div>
+                        <input asp-for="@Model.HeroStats.Perception" type="number" class="form-control" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label asp-for="@Model.HeroStats.Charisma" class="input-group-text">Charakter</label>
+                        </div>
+                        <input asp-for="@Model.HeroStats.Charisma" type="number" class="form-control"  />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label asp-for="@Model.HeroStats.Cleverness" class="input-group-text">Spryt</label>
+                        </div>
+                        <input asp-for="@Model.HeroStats.Cleverness" type="number" class="form-control"  />
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label asp-for="@Model.HeroStats.Body" class="input-group-text">Budowa</label>
+                        </div>
+                        <input asp-for="@Model.HeroStats.Body" type="number" class="form-control"  />
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 60rem">
+                <h5 class="card-header">Umiejętności</h5>
+                <div class="card-body">
+                    <div class="row justify-content-around">
+                        <div class="col-4">
+                            <div class="row justify-content-center">
+                                <div class="card">
+                                    <h6 class="card-header">Zręczność</h6>
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <h6 class="card-header">Walka wręcz</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Meele" class="input-group-text">Bijatyka</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Meele" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.MeleeWeapons" class="input-group-text">Broń ręczna</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.MeleeWeapons" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Throwing" class="input-group-text">Rzucanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Throwing" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Prowadzenie pojazdów</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.CarDriving" class="input-group-text">Samochód</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.CarDriving" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.MotorcycleDriving" class="input-group-text">Motocykl</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.MotorcycleDriving" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.TruckDriving" class="input-group-text">Ciężarówka</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.TruckDriving" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Zdolności manualne</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Pickpocketing" class="input-group-text">Kradzież kieszonkowa</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Pickpocketing" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.OpeningLocks" class="input-group-text">Otwieranie zamków</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.OpeningLocks" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.NimbleHands" class="input-group-text">Zwinne dłonie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.NimbleHands" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Broń strzelecka</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Handguns" class="input-group-text">Pistolety</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Handguns" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Rifles" class="input-group-text">Karabiny</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Rifles" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.MachineGuns" class="input-group-text">Broń maszynowa</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.MachineGuns" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Broń dystansowa</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Bow" class="input-group-text">Łuk</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Bow" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Crossbow" class="input-group-text">Kusza</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Crossbow" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Slingshot" class="input-group-text">Proca</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Slingshot" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row justify-content-center">
+                                <div class="card">
+                                    <h6 class="card-header">Percepcja</h6>
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <h6 class="card-header">Orientacja w terenie</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.DirectionSense" class="input-group-text">Wyczucie kierunku</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.DirectionSense" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.TrapPreparation" class="input-group-text">Przygotow. pułapki</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.TrapPreparation" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Tracking" class="input-group-text">Tropienie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Tracking" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Spostrzegawczość</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Hearing" class="input-group-text">Nasłuchiwanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Hearing" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Seeing" class="input-group-text">Wypatrywanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Seeing" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Alertness" class="input-group-text">Czujność</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Alertness" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Kamuflaż</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Sneaking" class="input-group-text">Skradanie się</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Sneaking" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Hiding" class="input-group-text">Ukrywanie się</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Hiding" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Masquarade" class="input-group-text">Maskowanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Masquarade" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Przetrwanie</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Hunting" class="input-group-text">Łowiectwo</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Hunting" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.FieldKnowledge" class="input-group-text">Znajomość terenu</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.FieldKnowledge" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.WaterGetting" class="input-group-text">Zdobywanie wody</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.WaterGetting" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center">
+                                    <div class="card">
+                                        <h6 class="card-header">Charakter</h6>
+                                        <div class="card-body">
+                                            <div class="card">
+                                                <h6 class="card-header">Negocjacje</h6>
+                                                <div class="card-body">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Bullying" class="input-group-text">Zastraszanie</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Bullying" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Persuation" class="input-group-text">Perswazja</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Persuation" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Leadership" class="input-group-text">Zdolności przywódcze</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Leadership" type="number" class="form-control"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <h6 class="card-header">Empatia</h6>
+                                                <div class="card-body">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.EmotionsAwareness" class="input-group-text">Postrzeganie emocji</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.EmotionsAwareness" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Bluff" class="input-group-text">Blef</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Bluff" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.AnimalCare" class="input-group-text">Opieka nad zwierz.</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.AnimalCare" type="number" class="form-control"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card">
+                                                <h6 class="card-header">Siła woli</h6>
+                                                <div class="card-body">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.PainResistance" class="input-group-text">Odporność na ból</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.PainResistance" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Niezlomnosc" class="input-group-text">Niezłomność</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Niezlomnosc" type="number" class="form-control"  />
+                                                    </div>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <label asp-for="@Model.HeroStats.Morale" class="input-group-text">Morale</label>
+                                                        </div>
+                                                        <input asp-for="@Model.HeroStats.Morale" type="number" class="form-control"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row justify-content-center">
+                                <div class="card">
+                                    <h6 class="card-header">Spryt</h6>
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <h6 class="card-header">Medycyna</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.FirstAid" class="input-group-text">Pierwsza pomoc</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.FirstAid" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.WoundHealing" class="input-group-text">Leczenie ran</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.WoundHealing" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.IlnessHealing" class="input-group-text">Leczenie chorób</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.IlnessHealing" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Technika</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Mechanics" class="input-group-text">Mechanika</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Mechanics" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Electronics" class="input-group-text">Elektronika</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Electronics" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Computers" class="input-group-text">Komputery</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Computers" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Wiedza ogólna</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Mathematics" class="input-group-text">Matematyka</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Mathematics" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.History" class="input-group-text">Historia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.History" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Geography" class="input-group-text">Geografia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Geography" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Physics" class="input-group-text">Fizyka</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Physics" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Chemistry" class="input-group-text">Chemia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Chemistry" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Biology" class="input-group-text">Biologia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Biology" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Chirurgy" class="input-group-text">Chirurgia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Chirurgy" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Psychology" class="input-group-text">Psychologia</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Psychology" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Sprzęt</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.HeavyMachinery" class="input-group-text">Maszyny ciężkie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.HeavyMachinery" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.CombatVehicles" class="input-group-text">Wozy bojowe</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.CombatVehicles" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Boats" class="input-group-text">Kutry</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Boats" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Pirotechnika</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Gunsmith" class="input-group-text">Rzusznikarstwo</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Gunsmith" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Launchers" class="input-group-text">Wyrzutnie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Launchers" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Explosives" class="input-group-text">Mat. wybuchowe</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Explosives" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card">
+                                    <h6 class="card-header">Budowa</h6>
+                                    <div class="card-body">
+                                        <div class="card">
+                                            <h6 class="card-header">Sprawność</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Condition" class="input-group-text">Kondycja</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Condition" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Swimming" class="input-group-text">Pływanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Swimming" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Climbing" class="input-group-text">Wspinaczka</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Climbing" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <h6 class="card-header">Jeździectwo</h6>
+                                            <div class="card-body">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.HorseRiding" class="input-group-text">Jazda konna</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.HorseRiding" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Powozenie" class="input-group-text">Powożenie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Powozenie" type="number" class="form-control"  />
+                                                </div>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <label asp-for="@Model.HeroStats.Ujezdzanie" class="input-group-text">Ujeżdżanie</label>
+                                                    </div>
+                                                    <input asp-for="@Model.HeroStats.Ujezdzanie" type="number" class="form-control"  />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

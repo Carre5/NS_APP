@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mpyjos\\source\\repos\\NSApp\\NSApp\\NSApp.csproj": {}
+    "D:\\Projekty\\Nauka\\NS_APP\\NSApp\\NSApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mpyjos\\source\\repos\\NSApp\\NSApp\\NSApp.csproj": {
+    "D:\\Projekty\\Nauka\\NS_APP\\NSApp\\NSApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mpyjos\\source\\repos\\NSApp\\NSApp\\NSApp.csproj",
+        "projectUniqueName": "D:\\Projekty\\Nauka\\NS_APP\\NSApp\\NSApp.csproj",
         "projectName": "NSApp",
-        "projectPath": "C:\\Users\\mpyjos\\source\\repos\\NSApp\\NSApp\\NSApp.csproj",
+        "projectPath": "D:\\Projekty\\Nauka\\NS_APP\\NSApp\\NSApp.csproj",
         "packagesPath": "C:\\Users\\mpyjos\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mpyjos\\source\\repos\\NSApp\\NSApp\\obj\\",
+        "outputPath": "D:\\Projekty\\Nauka\\NS_APP\\NSApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
